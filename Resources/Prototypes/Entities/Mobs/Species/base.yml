@@ -285,6 +285,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: FootprintOwner # Corvax-Next-Footprints
+  - type: LayingDown # WD EDIT
 
 - type: entity
   save: false
