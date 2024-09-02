@@ -44,6 +44,10 @@ binds:
 - function: Walk
   type: State
   key: Shift
+- function: ToggleStanding # _CorvaxNext-edit Laying System
+  type: State
+  key: C
+  mod1: Shift
 # Shuttle
 - function: ShuttleStrafeUp
   type: State
