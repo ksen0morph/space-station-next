@@ -30,13 +30,11 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
 
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/ADT/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
 
-    [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
+    public readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
 
-    [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
+    public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
 
-    [ValidatePrototypeId<CurrencyPrototype>] public readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
-
-    [ValidatePrototypeId<EntityPrototype>] static EntProtoId mindRole = "MindRoleHeretic";
+    public readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
 
     public override void Initialize()
     {
@@ -60,8 +58,6 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, mindRole.Id, mind, true);
-
         // briefing
         if (HasComp<MetaDataComponent>(target))
         {
@@ -70,8 +66,9 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
             _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting-fluff"), Color.MediumPurple, null);
             _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting"), Color.Red, BriefingSound);
 
-            if (_role.MindHasRole<HereticRoleComponent>(mindId, out var mr))
-                AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
+            if (_mind.TryGetRole<RoleBriefingComponent>(mindId, out var rbc))
+                rbc.Briefing += $"\n{briefingShort}";
+            else _role.MindAddRole(mindId, briefingShort, mind, true);
         }
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, HereticFactionId);
@@ -86,6 +83,9 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         store.Balance.Add(Currency, 2);
 
         rule.Minds.Add(mindId);
+
+        foreach (var objective in rule.Objectives)
+            _mind.TryAddObjective(mindId, mind, objective);
 
         return true;
     }

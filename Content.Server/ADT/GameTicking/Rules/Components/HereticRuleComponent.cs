@@ -18,4 +18,11 @@ public sealed partial class HereticRuleComponent : Component
         //"HereticPathRust", //TODO
         "HereticPathSide"
     };
+
+    public readonly List<ProtoId<EntityPrototype>> Objectives = new()
+    {
+        "HereticKnowledgeObjective",
+        "HereticSacrificeObjective",
+        "HereticSacrificeHeadObjective"
+    };
 }
