@@ -7,7 +7,7 @@
   showInVote: true
   description: heretic-title
   rules:
-    - HereticGameRule
+    - Heretic
     - BasicRoundstartVariation
     - SubGamemodesRule
     - BasicStationEventScheduler
