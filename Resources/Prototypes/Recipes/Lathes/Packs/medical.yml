@@ -99,3 +99,16 @@
   - StasisBedMachineCircuitboard
   - CryoPodMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
+
+- type: latheRecipePack
+  id: BodyBags
+  recipes:
+  - BluespaceBodyBag # Corvax-Next-AdvancedBodyBags
+  - NTBodyBag # Corvax-Next-AdvancedBodyBags
+  - PrisonerBodyBag # Corvax-Next-AdvancedBodyBags
+  - RadiationBodyBag # Corvax-Next-AdvancedBodyBags
+
+- type: latheRecipePack
+  id: EmagBodyBags
+  recipes:
+  - SyndicateBodyBag # Corvax-Next-AdvancedBodyBags

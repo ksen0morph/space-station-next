@@ -471,6 +471,10 @@
     - SurgeryStatic
     dynamicPacks:
     - Chemistry
+    - BodyBags
+    - type: EmagLatheRecipes
+    emagStaticPacks:
+    - EmagBodyBags
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
