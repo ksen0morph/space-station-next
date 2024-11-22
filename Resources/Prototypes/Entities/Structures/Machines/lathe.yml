@@ -263,6 +263,7 @@
     - CameraBoards
     - MechBoards
     - ShuttleBoards
+    - LawBoards
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
