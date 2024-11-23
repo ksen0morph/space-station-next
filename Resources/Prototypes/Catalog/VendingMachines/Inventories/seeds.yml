@@ -42,5 +42,6 @@
   contrabandInventory:
     TobaccoSeeds: 2
     FoodSnackSemki: 2
+    CucumbertSeeds: 5 # Corvax NEXT
   emaggedInventory:
     FlyAmanitaSeeds: 1
