@@ -7953,16 +7953,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,28.5
       parent: 1
-- proto: GasMixerOn
-  entities:
-  - uid: 129
-    components:
-    - type: Transform
-      pos: 3.5,28.5
-      parent: 1
-    - type: GasMixer
-      inletTwoConcentration: 0.22000003
-      inletOneConcentration: 0.78
 - proto: GasPassiveVent
   entities:
   - uid: 1770
@@ -9782,29 +9772,6 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0000FFFF'
-- proto: GasPressurePumpOn
-  entities:
-  - uid: 1780
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 2.5,28.5
-      parent: 1
-  - uid: 1793
-    components:
-    - type: Transform
-      pos: 3.5,29.5
-      parent: 1
-- proto: GasPressurePumpOnMax
-  entities:
-  - uid: 1790
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,29.5
-      parent: 1
-    - type: AtmosPipeColor
-      color: '#FF0000FF'
 - proto: GasVentPump
   entities:
   - uid: 27

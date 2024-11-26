@@ -11019,33 +11019,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 6.5,10.5
       parent: 4
-- proto: GasPressurePumpOn
-  entities:
-  - uid: 729
-    components:
-    - type: Transform
-      pos: 4.5,9.5
-      parent: 4
-    - type: AtmosPipeColor
-      color: '#FF4444FF'
-  - uid: 2563
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,3.5
-      parent: 2165
-    - type: AtmosPipeColor
-      color: '#0000FFFF'
-- proto: GasPressurePumpOnMax
-  entities:
-  - uid: 716
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 5.5,9.5
-      parent: 4
-    - type: AtmosPipeColor
-      color: '#880000FF'
 - proto: GasVentPump
   entities:
   - uid: 2564

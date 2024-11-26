@@ -33608,13 +33608,6 @@ entities:
     - type: Transform
       pos: 20.561836,5.5983276
       parent: 2
-- proto: ClothingBeltSurgicalBoardFilled
-  entities:
-  - uid: 5166
-    components:
-    - type: Transform
-      pos: 59.537018,4.9976716
-      parent: 2
 - proto: ClothingBeltUtility
   entities:
   - uid: 5167
@@ -72146,7 +72139,7 @@ entities:
       loadingNetworkDemand: 60.000237
       currentReceiving: 60.000237
       currentSupply: 60.000237
-- proto: SubstationWallBasic 
+- proto: SubstationWallBasic
   entities:
   - uid: 11189
     components:
