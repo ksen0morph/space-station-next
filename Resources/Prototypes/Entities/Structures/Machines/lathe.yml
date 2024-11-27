@@ -264,6 +264,7 @@
     - MechBoards
     - ShuttleBoards
     - LawBoards
+    - HarvesterBoards
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
