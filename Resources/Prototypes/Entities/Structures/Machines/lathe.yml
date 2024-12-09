@@ -206,6 +206,7 @@
     - Instruments
     - Equipment
     - FauxTiles
+    - BluespaceCrystals
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo

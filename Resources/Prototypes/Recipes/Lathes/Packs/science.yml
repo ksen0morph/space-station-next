@@ -140,3 +140,16 @@
   - DungeonMasterCircuitBoard
   - ArtistCircuitBoard
   - NutimovCircuitBoard
+
+- type: latheRecipePack
+  id: HarvesterBoards
+  recipes:
+  - MachineBluespaceHarvesterCircuitboard
+  - MachineBluespaceTransitorCircuitboard # Corvax-Next-BluespaceHarvester
+
+- type: latheRecipePack
+  id: BluespaceCrystals
+  recipes:
+  # Corvax-Next-BluespaceHarvester-Start
+  - ArtificialBluespaceCrystal
+  # Corvax-Next-BluespaceHarvester-End
