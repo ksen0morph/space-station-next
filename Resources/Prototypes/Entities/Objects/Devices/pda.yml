@@ -82,6 +82,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - SecWatchCartridge # Corvax-Next-SecWatch
+      - NanoChatCartridge # Corvax-Next-PDAChat
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -149,6 +150,7 @@
       - NewsReaderCartridge
       - MedTekCartridge
       - SecWatchCartridge # Corvax-Next-SecWatch
+      - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: BasePDA
@@ -499,6 +501,7 @@
       - NewsReaderCartridge
       - AstroNavCartridge
       - SecWatchCartridge # Corvax-Next-SecWatch
+      - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: BasePDA
@@ -849,6 +852,7 @@
     - WantedListCartridge
     - CrimeAssistCartridge # Corvax-Next-CrimeAssist
     - LogProbeCartridge
+    - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: BaseSecurityPDA
@@ -919,6 +923,7 @@
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
+      - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: CentcomPDA
@@ -944,6 +949,7 @@
       - MedTekCartridge
       - AstroNavCartridge
       - SecWatchCartridge # Corvax-Next-SecWatch
+      - NanoChatCartridge # Corvax-Next-PDAChat
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1092,6 +1098,7 @@
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
+      - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1261,6 +1268,7 @@
     - WantedListCartridge
     - CrimeAssistCartridge # Corvax-Next-CrimeAssist
     - LogProbeCartridge
+    - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1288,6 +1296,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - MedTekCartridge
+    - NanoChatCartridge # Corvax-Next-PDAChat
 
 - type: entity
   parent: ClownPDA
@@ -1432,6 +1441,8 @@
     preinstalled:
       - NotekeeperCartridge
       - MedTekCartridge
+      - NanoChatCartridge # Corvax-Next-PDAChat
+
 
 - type: entity
   parent: BasePDA
