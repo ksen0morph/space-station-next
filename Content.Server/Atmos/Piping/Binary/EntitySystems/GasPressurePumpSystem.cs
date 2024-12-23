@@ -34,6 +34,20 @@ public sealed class GasPressurePumpSystem : SharedGasPressurePumpSystem
             _ambientSoundSystem.SetAmbience(uid, false);
             return;
         }
+            base.Initialize();
+
+            SubscribeLocalEvent<GasPressurePumpComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<GasPressurePumpComponent, AtmosDeviceUpdateEvent>(OnPumpUpdated);
+            SubscribeLocalEvent<GasPressurePumpComponent, AtmosDeviceDisabledEvent>(OnPumpLeaveAtmosphere);
+            SubscribeLocalEvent<GasPressurePumpComponent, ExaminedEvent>(OnExamined);
+            SubscribeLocalEvent<GasPressurePumpComponent, ActivateInWorldEvent>(OnPumpActivate);
+            SubscribeLocalEvent<GasPressurePumpComponent, PowerChangedEvent>(OnPowerChanged);
+            // Bound UI subscriptions
+            SubscribeLocalEvent<GasPressurePumpComponent, GasPressurePumpChangeOutputPressureMessage>(OnOutputPressureChangeMessage);
+            SubscribeLocalEvent<GasPressurePumpComponent, GasPressurePumpToggleStatusMessage>(OnToggleStatusMessage);
+
+            SubscribeLocalEvent<GasPressurePumpComponent, MapInitEvent>(OnMapInit); // Corvax-Next-AutoPipes
+
 
         var outputStartingPressure = outlet.Air.Pressure;
 
@@ -53,5 +67,19 @@ public sealed class GasPressurePumpSystem : SharedGasPressurePumpSystem
             _atmosphereSystem.Merge(outlet.Air, removed);
             _ambientSoundSystem.SetAmbience(uid, removed.TotalMoles > 0f);
         }
+
+        /// Corvax-Next-AutoPipes-Start
+        private void OnMapInit(EntityUid uid, GasPressurePumpComponent pump, MapInitEvent args)
+        {
+            if (pump.StartOnMapInit)
+            {
+                pump.Enabled = true;
+                UpdateAppearance(uid, pump);
+
+                DirtyUI(uid, pump);
+                _userInterfaceSystem.CloseUi(uid, GasPressurePumpUiKey.Key);
+            }
+        }
+		/// Corvax-Next-AutoPipes-End
     }
 }
