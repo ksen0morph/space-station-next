@@ -1,7 +1,7 @@
+using Content.Shared._CorvaxNext.TurretControl.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
-using Content.Shared.Tag;
 using Content.Shared.Verbs;
 
 namespace Content.Shared._CorvaxNext.TurretControl;
@@ -9,10 +9,6 @@ namespace Content.Shared._CorvaxNext.TurretControl;
 public sealed class TurretControlSystem : EntitySystem
 {
     [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-
-    [ValidatePrototypeId<TagPrototype>]
-    private const string ControlTag = "StationAi";
 
     [ValidatePrototypeId<NpcFactionPrototype>]
     private const string Passive = "TurretPassive";
@@ -25,10 +21,10 @@ public sealed class TurretControlSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<TurretControlComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
+        SubscribeLocalEvent<TurretControllableComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
     }
 
-    private void OnGetVerbs(Entity<TurretControlComponent> entity, ref GetVerbsEvent<Verb> e)
+    private void OnGetVerbs(Entity<TurretControllableComponent> entity, ref GetVerbsEvent<Verb> e)
     {
         if (!TryComp<TurretControllerComponent>(e.User, out var controller))
             return;
