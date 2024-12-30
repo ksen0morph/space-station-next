@@ -7,6 +7,8 @@ using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
+using Content.Shared.Follower;
+using Content.Shared.Follower.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
@@ -45,7 +47,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-
+    [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
     public override void Initialize()
@@ -270,6 +272,14 @@ public sealed partial class PolymorphSystem : EntitySystem
         // Raise an event to inform anything that wants to know about the entity swap
         var ev = new PolymorphedEvent(uid, child, false);
         RaiseLocalEvent(uid, ref ev);
+        // goob edit
+        if (TryComp<FollowedComponent>(uid, out var followed))
+            foreach (var f in followed.Following)
+            {
+                _follow.StopFollowingEntity(f, uid);
+                _follow.StartFollowingEntity(f, child);
+            }
+        // goob edit end
 
         return child;
     }
@@ -354,7 +364,13 @@ public sealed partial class PolymorphSystem : EntitySystem
         QueueDel(uid);
 
         // goob edit
-        RaiseLocalEvent(parent, new PolymorphRevertEvent());
+        if (TryComp<FollowedComponent>(uid, out var followed))
+            foreach (var f in followed.Following)
+            {
+                _follow.StopFollowingEntity(f, uid);
+                _follow.StartFollowingEntity(f, parent);
+            }
+        // goob edit end
 
         return parent;
     }
