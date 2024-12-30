@@ -272,7 +272,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         // Raise an event to inform anything that wants to know about the entity swap
         var ev = new PolymorphedEvent(uid, child, false);
         RaiseLocalEvent(uid, ref ev);
-        // goob edit
+        // goob edits
         if (TryComp<FollowedComponent>(uid, out var followed))
             foreach (var f in followed.Following)
             {

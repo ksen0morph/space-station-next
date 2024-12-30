@@ -33,8 +33,7 @@ public sealed partial class AristocratSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<AristocratComponent>();
-        while (query.MoveNext(out var uid, out var aristocrat))
+        while (EntityQueryEnumerator<AristocratComponent>().MoveNext(out var uid, out var aristocrat))
         {
             if (!uid.IsValid())
                 continue;
