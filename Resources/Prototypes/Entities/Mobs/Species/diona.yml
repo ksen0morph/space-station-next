@@ -111,6 +111,10 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+<<<<<<< HEAD
+=======
+  - type: FTLKnockdownImmune # Corvax-Next-FTLImmune
+>>>>>>> 38e710f42b (FootprintsRework)
 
 - type: entity
   parent: BaseSpeciesDummy
