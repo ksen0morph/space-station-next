@@ -97,12 +97,12 @@
   - ActionHereticAscension2
   event: !type:HereticAscensionAshEvent
 
-
 ### blade path
 - type: hereticKnowledge
   id: CuttingEdge
   path: Blade
   stage: 1
+  event: !type:HereticCuttingEdgeEvent
   ritualPrototypes:
   - BladeBlade
 

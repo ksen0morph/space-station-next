@@ -41,7 +41,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         EnsureComp<RiposteeComponent>(ent);
     }
-
     private void OnRealignment(Entity<HereticComponent> ent, ref EventHereticRealignment args)
     {
         if (!TryUseAbility(ent, args))
@@ -64,7 +63,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             Dirty(ent, stam);
         }
 
-        _statusEffect.TryAddStatusEffect(ent, "Pacified", TimeSpan.FromSeconds(10f), true);
+        _statusEffect.TryAddStatusEffect<PacifiedComponent>(ent, "Pacified", TimeSpan.FromSeconds(10f), true);
 
         args.Handled = true;
     }
