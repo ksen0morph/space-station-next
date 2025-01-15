@@ -264,17 +264,3 @@
     exclusiveAntag: true
     roleType: TeamAntagonist
   - type: ZombieRole
-
-# goob edit - heretics
-
-- type: entity
-  parent: BaseMindRoleAntag
-  id: MindRoleHeretic
-  name: Heretic Role
-  components:
-  - type: MindRole
-    antagPrototype: Heretic
-    exclusiveAntag: true
-  - type: HereticRole
-
-# goob edit end

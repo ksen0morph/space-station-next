@@ -13,7 +13,7 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.ADT.Crawling;
+using Content.Shared._White.Standing;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
@@ -43,6 +43,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -69,6 +70,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (!TryComp<HereticComponent>(args.User, out var hereticComp))
         {
             QueueDel(ent);
+            args.Handled = true;
             return;
         }
 
@@ -101,6 +103,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         hereticComp.MansusGraspActive = false;
         QueueDel(ent);
+        args.Handled = true;
     }
 
     private void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)
@@ -125,6 +128,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         // spawn our rune
         var rune = Spawn("HereticRuneRitualDrawAnimation", args.ClickLocation);
+        _transform.AttachToGridOrMap(rune);
         var dargs = new DoAfterArgs(EntityManager, args.User, 14f, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
         {
             BreakOnDamage = true,
@@ -140,7 +144,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         QueueDel(ev.RitualRune);
 
         if (!ev.Cancelled)
-            Spawn("HereticRuneRitual", ev.Coords);
+            _transform.AttachToGridOrMap(Spawn("HereticRuneRitual", ev.Coords));
     }
 
     public void ApplyGraspEffect(EntityUid performer, EntityUid target, string path)
@@ -169,9 +173,8 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
                     // ultra stun if the person is looking away or laying down
                     var degrees = Transform(target).LocalRotation.Degrees - Transform(performer).LocalRotation.Degrees;
-                    if (HasComp<CrawlingComponent>(target) // laying down
-                    || (degrees >= 160 && degrees <= 210)) // looking back
-                        _stamina.TakeStaminaDamage(target, 110f);
+                    if (HasComp<LayingDownComponent>(target) // laying down
+                    || (degrees >= 160 && degrees <= 210));
                     break;
                 }
 
