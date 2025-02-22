@@ -3,6 +3,7 @@ using Content.Server.Body.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
 using Content.Server.Temperature.Components;
+using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
