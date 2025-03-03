@@ -128,7 +128,7 @@
 
 - type: latheRecipePack
   id: LawBoards
-  resipes:
+  recipes:
   - AsimovCircuitBoard
   - CorporateCircuitBoard
   - NTDefaultCircuitBoard

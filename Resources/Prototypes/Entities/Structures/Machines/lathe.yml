@@ -473,8 +473,8 @@
     - SurgeryStatic
     dynamicPacks:
     - Chemistry
-    - BodyBags
-    - type: EmagLatheRecipes
+    - ExBodyBags
+  - type: EmagLatheRecipes
     emagStaticPacks:
     - EmagBodyBags
   - type: Machine

@@ -101,7 +101,7 @@
   - BiomassReclaimerMachineCircuitboard
 
 - type: latheRecipePack
-  id: BodyBags
+  id: ExBodyBags
   recipes:
   - BluespaceBodyBag # Corvax-Next-AdvancedBodyBags
   - NTBodyBag # Corvax-Next-AdvancedBodyBags
