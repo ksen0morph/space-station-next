@@ -372,7 +372,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         while (query.MoveNext(out var uid, out _, out _, out var power))
         {
             if (Transform(uid).MapID == mapId && power.Powered)
-            if (_station.GetOwningStation(uid) == station && power.Powered)
                 return true;
         }
 
