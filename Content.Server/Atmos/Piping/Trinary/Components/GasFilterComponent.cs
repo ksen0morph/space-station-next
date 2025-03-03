@@ -23,12 +23,7 @@ namespace Content.Server.Atmos.Piping.Trinary.Components
         [DataField]
         public float MaxTransferRate = Atmospherics.MaxTransferRate;
 
-        [DataField, ViewVariables(VVAccess.ReadWrite)] // Corvax-Next-AutoPipes
-        public Gas? FilteredGas;
-		
-		/// Corvax-Next-AutoPipes-Start
         [DataField]
-        public bool StartOnMapInit { get; set; } = false;
-		/// Corvax-Next-AutoPipes-End
+        public Gas? FilteredGas;
     }
 }
