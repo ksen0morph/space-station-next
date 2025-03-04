@@ -64,6 +64,27 @@ namespace Content.IntegrationTests.Tests
             "CorvaxGlacier",
             "CorvaxAwesome",
             // Corvax-End
+            // Corvax-Next-start
+            "NextAvrite",
+            "NextDelta",
+            "NextSilly",
+            "NextOutpost",
+            "NextAstra",
+			"NextMaus",
+			"NextPaper",
+			"NextCute",
+            "NextPilgrim",
+            "NextPearl",
+            "NextTushkan",
+            "NextGlacier",
+            "NextAwesome",
+			"NextBagel",
+            "NextBox",
+            "NextAmber",
+            "NextMarathon",
+            "NextOmega",
+            "NextPacked",
+            // Corvax-Next-end
             "Dev",
             "TestTeg",
             "Fland",
@@ -83,10 +104,7 @@ namespace Content.IntegrationTests.Tests
             "Gate",
             "Amber",
             "Loop",
-            "Plasma",
-            "Elkridge",
-            "Convex",
-            "Relic"
+            "Elkridge"
         };
 
         /// <summary>

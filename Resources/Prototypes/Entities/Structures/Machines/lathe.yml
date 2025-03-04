@@ -206,6 +206,7 @@
     - Instruments
     - Equipment
     - FauxTiles
+    - BluespaceCrystals
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -263,6 +264,8 @@
     - CameraBoards
     - MechBoards
     - ShuttleBoards
+    - LawBoards
+    - HarvesterBoards
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityBoards
@@ -470,6 +473,10 @@
     - SurgeryStatic
     dynamicPacks:
     - Chemistry
+    - ExBodyBags
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - EmagBodyBags
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
